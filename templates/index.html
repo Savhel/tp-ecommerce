@@ -1,24 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FiveTstore</title>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/components/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Landpage - Vivres Frais</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
-   
-<div id="footer-placeholder"></div>
-   <script>
-    fetch('../components/footer.html')
-        .then(response => response.text())
-        .then(data => { 
-            document.getElementById('footer-placeholder').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading footer:', error));
-   </script>
-    
+<header>
+    <h1>Landpage</h1>
+</header>
+
+<div class="container">
+    <section class="hero">
+        <h2>Vivres Frais du Jour</h2>
+        <p>Découvrez notre sélection de produits frais : tomates, fleurs, condiments et plantes. Qualité garantie, directement de nos producteurs locaux.</p>
+    </section>
+
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <!-- SECTION À MODIFIER : Remplacez les src par les  chemins d'images -->
+                <!-- Format recommandé : ../assets/images/produits/nom-produit.jpg -->
+
+                <div class="carousel-item" id="slide1">
+                    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=250&fit=crop" alt="Tomates fraîches" class="carousel-image">
+                    <div class="carousel-content">
+                        <h3>Tomates Bio</h3>
+                        <p>Tomates fraîches et juteuses, cultivées sans pesticides</p>
+                        <span class="price">2.500 FCFA/kg</span>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="slide2">
+                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=250&fit=crop" alt="Fleurs tropicales" class="carousel-image">
+                    <div class="carousel-content">
+                        <h3>Fleurs Tropicales</h3>
+                        <p>Bouquets colorés pour égayer votre intérieur</p>
+                        <span class="price">3.000 FCFA</span>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="slide3">
+                    <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=400&h=250&fit=crop" alt="Herbes aromatiques" class="carousel-image">
+                    <div class="carousel-content">
+                        <h3>Condiments Frais</h3>
+                        <p>Basilic, persil, coriandre et bien plus</p>
+                        <span class="price">500 FCFA/botte</span>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="slide4">
+                    <img src="https://images.unsplash.com/photo-1466781783364-36c955e42a7f?w=400&h=250&fit=crop" alt="Plantes d'intérieur" class="carousel-image">
+                    <div class="carousel-content">
+                        <h3>Plantes d'Intérieur</h3>
+                        <p>Purifiez votre air avec nos plantes vertes</p>
+                        <span class="price">5.000 FCFA</span>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="slide5">
+                    <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=250&fit=crop" alt="Carottes fraîches" class="carousel-image">
+                    <div class="carousel-content">
+                        <h3>Légumes Variés</h3>
+                        <p>Carottes, poivrons, oignons et plus</p>
+                        <span class="price">1.800 FCFA/kg</span>
+                    </div>
+                </div>
+
+                <div class="carousel-item" id="slide6">
+                    <img src="https://images.unsplash.com/photo-1597848212624-e30558735b67?w=400&h=250&fit=crop" alt="Tournesols" class="carousel-image">
+                    <div class="carousel-content">
+                        <h3>Tournesols</h3>
+                        <p>Grands tournesols éclatants et vibrants</p>
+                        <span class="price">2.000 FCFA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="#slide1" class="pagination-dot">1</a>
+            <a href="#slide2" class="pagination-dot">2</a>
+            <a href="#slide3" class="pagination-dot">3</a>
+            <a href="#slide4" class="pagination-dot">4</a>
+            <a href="#slide5" class="pagination-dot">5</a>
+            <a href="#slide6" class="pagination-dot">6</a>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <h2>Commandez Maintenant</h2>
+        <p>Profitez de nos produits frais livrés directement chez vous. Livraison gratuite pour toute commande supérieure à 10.000 FCFA !</p>
+        <a href="produits.html" class="cta-button">Voir Tous les Produits</a>
+    </section>
+</div>
 </body>
 </html>
