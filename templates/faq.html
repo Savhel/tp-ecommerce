@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - FiveTstore</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/pages/faq.css">
+</head>
+<body>
+    <div class="faq-container">
+        <h1>Foire Aux Questions</h1>
+
+        <!-- Section Commandes -->
+        <section class="faq-section">
+            <h2>Commandes</h2>
+            <div class="faq-item">
+                <h3>Comment passer une commande ?</h3>
+                <p>Ajoutez les articles dans votre panier, connectez-vous à votre compte et suivez les étapes de paiement.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Comment suivre ma commande ?</h3>
+                <p>Connectez-vous à votre compte pour suivre l'état de votre commande en temps réel.</p>
+            </div>
+        </section>
+
+        <!-- Section Livraison -->
+        <section class="faq-section">
+            <h2>Livraison</h2>
+            <div class="faq-item">
+                <h3>Quels sont les délais de livraison ?</h3>
+                <p>La livraison standard prend 3-5 jours ouvrés. La livraison express est disponible sous 24-48h.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Quels sont les frais de livraison ?</h3>
+                <p>La livraison est gratuite pour toute commande supérieure à 50€. En dessous, les frais sont de 5,90€.</p>
+            </div>
+        </section>
+
+        <!-- Section Retours -->
+        <section class="faq-section">
+            <h2>Retours et Remboursements</h2>
+            <div class="faq-item">
+                <h3>Comment retourner un article ?</h3>
+                <p>Vous disposez de 14 jours pour retourner un article. Connectez-vous à votre compte pour initier le retour.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Quand serai-je remboursé ?</h3>
+                <p>Le remboursement est effectué sous 5-7 jours ouvrés après réception de votre retour.</p>
+            </div>
+        </section>
+
+        <!-- Section Paiement -->
+        <section class="faq-section">
+            <h2>Paiement</h2>
+            <div class="faq-item">
+                <h3>Quels moyens de paiement acceptez-vous ?</h3>
+                <p>Nous acceptons les cartes bancaires (Visa, Mastercard), PayPal et les virements bancaires.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Le paiement est-il sécurisé ?</h3>
+                <p>Oui, toutes nos transactions sont cryptées et sécurisées selon les normes bancaires en vigueur.</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
