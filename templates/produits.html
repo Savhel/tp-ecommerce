@@ -1,67 +1,29 @@
-<!-- Section de présentation du produit -->
-<section class="product-page">
+<section class="page-produit">
+  
+  <!-- Flèche de retour -->
+  <div class="retour">&#8592;</div>
 
-  <!-- Flèche retour à droite -->
-  <div class="back-btn" onclick="window.history.back()">&#8592;</div>
+  <div class="contenu-produit">
 
-  <!-- Contenu principal -->
-  <div class="product-container">
-    
-    <!-- Description du produit (dynamique depuis JSON) -->
-    <div class="product-description">
-      <h1 id="product-name"></h1>
-      <p id="product-description"></p>
-      <p class="price" id="product-price"></p>
-
-      <!-- Bouton Ajouter au panier -->
-      <button class="add-to-cart" id="addToCartBtn">
-        Ajouter au panier 🛒
-      </button>
+    <!-- Description du produit -->
+    <div class="description-produit">
+      <h1 class="nom-produit">Casque Bluetooth X500</h1>
+      <p class="texte-produit">
+        Casque sans fil avec réduction de bruit active et autonomie de 20 heures. 
+        Design confortable et son haute fidélité pour une expérience audio exceptionnelle.
+      </p>
+      <p class="prix-produit">79,99 €</p>
+      <button class="btn-panier">Ajouter au panier 🛒</button>
     </div>
 
     <!-- Images du produit -->
-    <div class="product-images" id="product-images"></div>
+    <div class="images-produit">
+      <img src="https://via.placeholder.com/350x250?text=Casque+1" alt="Image 1 du produit">
+      <img src="https://via.placeholder.com/350x250?text=Casque+2" alt="Image 2 du produit">
+    </div>
   </div>
 
-  <!-- Panier global en bas à gauche -->
-  <div class="cart-global" onclick="showCart()">🛍️</div>
+  <!-- Panier global -->
+  <div class="panier-global">🛍️</div>
 
 </section>
-
-<!-- Script pour charger les données JSON -->
-<script>
-  let cart = [];
-
-  async function loadProduct() {
-    const response = await fetch('produit.json');
-    const product = await response.json();
-
-    document.getElementById('product-name').textContent = product.nom;
-    document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-price').textContent = product.prix.toFixed(2) + ' €';
-
-    const imgContainer = document.getElementById('product-images');
-    product.images.forEach(src => {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = product.nom;
-      imgContainer.appendChild(img);
-    });
-
-    document.getElementById('addToCartBtn').addEventListener('click', () => {
-      cart.push(product);
-      alert(`${product.nom} a été ajouté au panier !`);
-    });
-  }
-
-  function showCart() {
-    if (cart.length === 0) {
-      alert("Votre panier est vide 🛒");
-    } else {
-      let contenu = cart.map(p => `• ${p.nom} (${p.prix} €)`).join('\n');
-      alert("🛍️ Votre panier contient :\n" + contenu);
-    }
-  }
-
-  loadProduct();
-</script>
