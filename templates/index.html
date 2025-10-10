@@ -6,6 +6,7 @@
     <title>FiveTstore</title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/components/footer.css">
+    <link rel="stylesheet" href="/assets/css/pages/produits.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -19,6 +20,70 @@
         })
         .catch(error => console.error('Error loading footer:', error));
    </script>
+
+
+   <section class="product-page">
+
+  <!-- Flèche retour (à droite) -->
+  <div class="back-btn" onclick="window.history.back()">&#8592;</div>
+
+  <!-- Contenu principal -->
+  <div class="product-container">
+
+    <!-- Description du produit -->
+    <div class="product-description">
+      <h1 id="product-name">ASUS Vivobook 15</h1>
+      <p id="product-description">
+        Le ASUS Vivobook 15 est un ordinateur portable léger et performant,
+        doté d’un écran Full HD de 15,6 pouces, d’un processeur Intel Core i5,
+        de 8 Go de RAM et d’un SSD rapide de 512 Go. Idéal pour le travail, les études et le divertissement.
+      </p>
+
+      <p class="price" id="product-price">749,99 €</p>
+
+      <!-- Bouton Ajouter au panier -->
+      <button class="add-to-cart" id="addToCartBtn">Ajouter au panier 🛒</button>
+    </div>
+
+    <!-- Images du produit -->
+    <div class="product-images" id="product-images">
+      <img src="https://cdn.thewirecutter.com/wp-content/media/2022/04/bestlaptops-2048px-asusvivobook15.jpg"
+           alt="ASUS Vivobook 15 - vue avant">
+      <img src="https://cdn1.smartprix.com/rx-iK9PnNHXx-w1200-h1200/K9PnNHXx.jpg"
+           alt="ASUS Vivobook 15 - vue latérale">
+    </div>
+
+  </div>
+
+  <!-- Panier global -->
+  <div class="cart-global" onclick="showCart()">🛍️</div>
+
+  <!-- Script JS -->
+  <script>
+    let cart = [];
+
+    document.getElementById("addToCartBtn").addEventListener("click", () => {
+      const product = {
+        nom: "ASUS Vivobook 15",
+        prix: 749.99
+      };
+      cart.push(product);
+      alert(`${product.nom} a été ajouté au panier !`);
+    });
+
+    function showCart() {
+      if (cart.length === 0) {
+        alert("Votre panier est vide 🛒");
+      } else {
+        let contenu = cart.map(p => `• ${p.nom} (${p.prix} €)`).join('\n');
+        alert("🛍️ Votre panier contient :\n" + contenu);
+      }
+    }
+  </script>
+
+</section>
+
+
     
 </body>
 </html>
