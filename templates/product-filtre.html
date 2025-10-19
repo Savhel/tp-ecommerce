@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtre Produits</title>
+  <style>
+    /* Style général */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .conteneur-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card-product {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      background: white;
+    }
+
+    .card-product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-name, .product-price, .product-origin {
+      margin: 5px 0;
+    }
+
+    .product-price {
+      color: green;
+    }
+
+    button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc0000;
+    }
+
+    /* Icône de menu */
+    .filter-icon {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .filter-icon img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Menu filtre */
+    .menu-filter-div {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100vh;
+      background-color: #f4f4f4;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+      transition: right 0.3s ease-in-out;
+      z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .menu-filter-div.active {
+      right: 0;
+    }
+
+    .menu-filter-div h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .menu-filter-div ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu-filter-div li {
+      margin: 15px 0;
+    }
+
+    .menu-filter-div label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .menu-filter-div select, .menu-filter-div input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .close-btn:hover {
+      background: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="filter-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/561/561129.png" alt="Menu Filtre" id="menu-toggle"/>
+  </div>
+  <div class="conteneur-grid" id="product-container"></div>
+  <div class="menu-filter-div">
+    <button class="close-btn" id="close-menu">X</button>
+    <h2>Filtrer les Produits</h2>
+    <ul>
+      <li>
+        <label for="origin-filter">Provenance :</label>
+        <select id="origin-filter">
+          <option value="">Toutes</option>
+          <option value="Mungo">Mungo</option>
+          <option value="Ebolowa">Ebolowa</option>
+        </select>
+      </li>
+      <li>
+        <label for="price-filter">Prix max (FCFA) :</label>
+        <input type="number" id="price-filter" placeholder="Ex: 4000" min="0">
+      </li>
+      <li>
+        <button onclick="applyFilters()">Appliquer les filtres</button>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Liste des produits
+    let productList = {
+      "Bananes mures": [200, 2999, 5, "Mungo", "https://media.istockphoto.com/id/175390068/fr/photo/banane-papier-peint.jpg?s=1024x1024&w=is&k=20&c=6COlzexDlKYy5-xUQGH3YqHsEQMYNy9j8PJ1BwuhveM="],
+      "Papayes vertes": [400, 3999, 10, "Ebolowa", "https://cdn.pixabay.com/photo/2014/04/24/11/37/papaya-331273_1280.jpg"],
+      "Maniocs": [600, 4000, 10, "", ""],
+      "Oranges": [400, 3500, 20, "", ""]
+    };
+
+    // Conteneur des produits
+    const conteneur = document.getElementById('product-container');
+
+    // Fonction pour afficher les produits
+    function ajouterElements(products) {
+      conteneur.innerHTML = ''; // Vider le conteneur
+      Object.keys(products).forEach(nom => {
+        const produit = {
+          nom: nom,
+          poids: products[nom][0],
+          prix: products[nom][1],
+          quantite: products[nom][2],
+          origine: products[nom][3],
+          image: products[nom][4]
+        };
+
+        const card = document.createElement('div');
+        card.className = "card-product";
+
+        card.innerHTML = `
+          <img src="${produit.image || 'https://via.placeholder.com/200'}" alt="${produit.nom}"/>
+          <p class="product-name">${produit.nom} ${produit.poids}g</p>
+          <p class="product-origin">Provenance: ${produit.origine || 'Inconnue'}</p>
+          <p class="product-price">${produit.prix} FCFA</p>
+          <button>Ajouter au panier</button>
+        `;
+
+        conteneur.appendChild(card);
+      });
+    }
+
+    // Afficher tous les produits au chargement
+    ajouterElements(productList);
+
+    // Gestion du menu filtre
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuFilterDiv = document.querySelector('.menu-filter-div');
+    const closeMenuBtn = document.getElementById('close-menu');
+
+    menuToggle.addEventListener('click', () => {
+      menuFilterDiv.classList.toggle('active');
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      menuFilterDiv.classList.remove('active');
+    });
+
+    // Appliquer les filtres
+    function applyFilters() {
+      const originFilter = document.getElementById('origin-filter').value;
+      const priceFilter = document.getElementById('price-filter').value;
+
+      const filteredProducts = Object.fromEntries(
+        Object.entries(productList).filter(([_, details]) => {
+          const matchesOrigin = !originFilter || details[3] === originFilter;
+          const matchesPrice = !priceFilter || details[1] <= parseInt(priceFilter);
+          return matchesOrigin && matchesPrice;
+        })
+      );
+
+      ajouterElements(filteredProducts);
+      menuFilterDiv.classList.remove('active'); // Fermer le menu après filtrage
+    }
+  </script>
+</body>
+</html>
