@@ -1,0 +1,216 @@
+/* Contact Page Specific Styles */
+
+/* Contact Section */
+.contact-section {
+    position: relative;
+}
+
+/* Contact Info Cards */
+.contact-info {
+    margin-bottom: 40px;
+}
+
+.contact-info .info {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+}
+
+.contact-info .info:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.contact-info .info p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.contact-info .info p span {
+    display: block;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.contact-info .info a {
+    color: #82ae46;
+    transition: color 0.3s;
+}
+
+.contact-info .info a:hover {
+    color: #68922e;
+}
+
+/* Block-9 Layout */
+.block-9 {
+    width: 100%;
+}
+
+.order-md-last {
+    order: 2;
+}
+
+@media (min-width: 768px) {
+    .order-md-last {
+        order: 2;
+    }
+}
+
+/* Contact Form */
+.contact-form {
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #999;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #82ae46;
+    outline: 0;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form input[type="submit"] {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.contact-form input[type="submit"]:hover {
+    background: #68922e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(130, 174, 70, 0.3);
+}
+
+/* Map Container */
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+#map:after {
+    content: '📍 Map Location';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #999;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Padding utilities */
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.p-5 {
+    padding: 3rem !important;
+}
+
+/* Full Width Break */
+.w-100 {
+    width: 100% !important;
+}
+
+/* Additional column spacing */
+.col-md-3.d-flex {
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .contact-form {
+        margin-bottom: 30px;
+    }
+
+    #map {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-info .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .contact-info .info {
+        margin-bottom: 15px;
+    }
+
+    .block-9 .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .order-md-last {
+        order: 0;
+    }
+
+    .contact-form {
+        padding: 2rem !important;
+        margin-bottom: 30px;
+    }
+
+    #map {
+        min-height: 300px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-info .info p {
+        font-size: 14px;
+    }
+
+    .contact-info .info p span {
+        font-size: 15px;
+    }
+
+    .contact-form input[type="submit"] {
+        padding: 15px 30px !important;
+    }
+}

@@ -1,175 +1,175 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Validation du panier — Marché des Légumes</title>
-    <link rel="stylesheet" href="assets/css/pages/validation_panier.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Validation du panier — Marché des Légumes</title>
+  <link rel="stylesheet" href="assets/css/pages/validation_panier.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site-header">
+  <header class="site-header">
     <div class="container head">
-        <h1 class="brand">Marché Frais</h1>
-        <nav class="steps" aria-label="Étapes de commande">
-            <ol>
-                <li class="done">Panier</li>
-                <li class="current">Validation</li>
-                <li>Paiement</li>
-                <li>Confirmation</li>
-            </ol>
-        </nav>
+      <h1 class="brand">Marché Frais</h1>
+      <nav class="steps" aria-label="Étapes de commande">
+        <ol>
+          <li class="done">Panier</li>
+          <li class="current">Validation</li>
+          <li>Paiement</li>
+          <li>Confirmation</li>
+        </ol>
+      </nav>
     </div>
-</header>
+  </header>
 
-<main class="container layout" id="main">
+  <main class="container layout" id="main">
     <!-- Colonne principale : coordonnées + livraison -->
     <section class="panel">
-        <h2>Coordonnées & livraison</h2>
+      <h2>Coordonnées & livraison</h2>
 
-        <form class="form-grid" aria-labelledby="form-title" novalidate>
-            <h3 id="form-title" class="sr-only">Formulaire de livraison</h3>
+      <form class="form-grid" aria-labelledby="form-title" novalidate>
+        <h3 id="form-title" class="sr-only">Formulaire de livraison</h3>
 
-            <div class="row two">
-                <div>
-                    <label for="nom">Nom</label>
-                    <input id="nom" name="nom" required>
-                </div>
-                <div>
-                    <label for="prenom">Prénom</label>
-                    <input id="prenom" name="prenom" required>
-                </div>
-            </div>
+        <div class="row two">
+          <div>
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" required>
+          </div>
+          <div>
+            <label for="prenom">Prénom</label>
+            <input id="prenom" name="prenom" required>
+          </div>
+        </div>
 
-            <div class="row two">
-                <div>
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" required>
-                </div>
-                <div>
-                    <label for="tel">Téléphone</label>
-                    <input id="tel" type="tel" name="tel" placeholder="+237 6xx xx xx xx" required>
-                </div>
-            </div>
+        <div class="row two">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required>
+          </div>
+          <div>
+            <label for="tel">Téléphone</label>
+            <input id="tel" type="tel" name="tel" placeholder="+237 6xx xx xx xx" required>
+          </div>
+        </div>
 
-            <div class="row">
-                <label for="adresse">Adresse</label>
-                <input id="adresse" name="adresse" placeholder="Quartier, rue, immeuble…" required>
-            </div>
+        <div class="row">
+          <label for="adresse">Adresse</label>
+          <input id="adresse" name="adresse" placeholder="Quartier, rue, immeuble…" required>
+        </div>
 
-            <div class="row two">
-                <div>
-                    <label for="ville">Ville</label>
-                    <input id="ville" name="ville" placeholder="Yaoundé, Douala…" required>
-                </div>
-                <div>
-                    <label for="code">Code postal (optionnel)</label>
-                    <input id="code" name="code" inputmode="numeric" pattern="[0-9]*">
-                </div>
-            </div>
+        <div class="row two">
+          <div>
+            <label for="ville">Ville</label>
+            <input id="ville" name="ville" placeholder="Yaoundé, Douala…" required>
+          </div>
+          <div>
+            <label for="code">Code postal (optionnel)</label>
+            <input id="code" name="code" inputmode="numeric" pattern="[0-9]*">
+          </div>
+        </div>
 
-            <fieldset class="row">
-                <legend>Mode de livraison</legend>
-                <div class="choices">
-                    <label class="choice">
-                        <input type="radio" name="livraison" checked>
-                        <span>
+        <fieldset class="row">
+          <legend>Mode de livraison</legend>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="livraison" checked>
+              <span>
                 <strong>Standard</strong>
                 <small>Sous 48–72h</small>
               </span>
-                        <em>1 500 XAF</em>
-                    </label>
-                    <label class="choice">
-                        <input type="radio" name="livraison">
-                        <span>
+              <em>1 500 XAF</em>
+            </label>
+            <label class="choice">
+              <input type="radio" name="livraison">
+              <span>
                 <strong>Express</strong>
                 <small>Dans la journée (Yaoundé/Douala)</small>
               </span>
-                        <em>3 500 XAF</em>
-                    </label>
-                    <label class="choice">
-                        <input type="radio" name="livraison">
-                        <span>
+              <em>3 500 XAF</em>
+            </label>
+            <label class="choice">
+              <input type="radio" name="livraison">
+              <span>
                 <strong>Point relais</strong>
                 <small>Gratuit — campus / marché local</small>
               </span>
-                        <em>0 XAF</em>
-                    </label>
-                </div>
-            </fieldset>
+              <em>0 XAF</em>
+            </label>
+          </div>
+        </fieldset>
 
-            <fieldset class="row">
-                <legend>Méthode de paiement (étape suivante)</legend>
-                <div class="pay-icons">
-                    <span class="pill">Mobile Money</span>
-                    <span class="pill">Carte</span>
-                    <span class="pill">Espèces</span>
-                </div>
-                <p class="hint">Le choix détaillé se fait à l’étape “Paiement”.</p>
-            </fieldset>
+        <fieldset class="row">
+          <legend>Méthode de paiement (étape suivante)</legend>
+          <div class="pay-icons">
+            <span class="pill">Mobile Money</span>
+            <span class="pill">Carte</span>
+            <span class="pill">Espèces</span>
+          </div>
+          <p class="hint">Le choix détaillé se fait à l’étape “Paiement”.</p>
+        </fieldset>
 
-            <div class="row">
-                <label for="note">Note pour le livreur (optionnel)</label>
-                <textarea id="note" name="note" rows="3" placeholder="Ex.: portail vert, boutique face au carrefour…"></textarea>
-            </div>
+        <div class="row">
+          <label for="note">Note pour le livreur (optionnel)</label>
+          <textarea id="note" name="note" rows="3" placeholder="Ex.: portail vert, boutique face au carrefour…"></textarea>
+        </div>
 
-            <div class="actions">
-                <a class="btn ghost" href="#">⟵ Retour au panier</a>
-                <a class="btn primary" href="#">Continuer vers le paiement ⟶</a>
-            </div>
-        </form>
+        <div class="actions">
+          <a class="btn ghost" href="#">⟵ Retour au panier</a>
+          <a class="btn primary" href="#">Continuer vers le paiement ⟶</a>
+        </div>
+      </form>
     </section>
 
     <!-- Colonne résumé -->
     <aside class="panel summary" aria-labelledby="resume-title">
-        <h2 id="resume-title">Résumé de la commande</h2>
+      <h2 id="resume-title">Résumé de la commande</h2>
 
-        <ul class="items">
-            <li class="item">
-                <div class="ph-img" role="img" aria-label="Panier Légumes Frais"></div>
-                <div class="meta">
-                    <strong class="name">Panier Légumes Frais</strong>
-                    <span class="qty">Qté 1 × 4 500</span>
-                </div>
-                <div class="price">4 500 XAF</div>
-            </li>
-            <li class="item">
-                <div class="ph-img" role="img" aria-label="Carottes Bio"></div>
-                <div class="meta">
-                    <strong class="name">Carottes Bio</strong>
-                    <span class="qty">Qté 2 × 1 200</span>
-                </div>
-                <div class="price">2 400 XAF</div>
-            </li>
-        </ul>
+      <ul class="items">
+        <li class="item">
+          <div class="ph-img" role="img" aria-label="Panier Légumes Frais"></div>
+          <div class="meta">
+            <strong class="name">Panier Légumes Frais</strong>
+            <span class="qty">Qté 1 × 4 500</span>
+          </div>
+          <div class="price">4 500 XAF</div>
+        </li>
+        <li class="item">
+          <div class="ph-img" role="img" aria-label="Carottes Bio"></div>
+          <div class="meta">
+            <strong class="name">Carottes Bio</strong>
+            <span class="qty">Qté 2 × 1 200</span>
+          </div>
+          <div class="price">2 400 XAF</div>
+        </li>
+      </ul>
 
-        <form class="coupon">
-            <label for="code-coupon">Code promo</label>
-            <div class="coupon-row">
-                <input id="code-coupon" placeholder="VERT10">
-                <button class="btn apply" type="button" disabled>Appliquer</button>
-            </div>
-            <p class="hint">* Interaction désactivée (HTML/CSS uniquement)</p>
-        </form>
-
-        <dl class="totals">
-            <div><dt>Sous-total</dt><dd>6 900 XAF</dd></div>
-            <div><dt>Livraison</dt><dd>1 000 XAF</dd></div>
-            <div class="grand"><dt>Total</dt><dd>7 900 XAF</dd></div>
-        </dl>
-
-        <div class="secure">
-            🔒 Paiement sécurisé — connexion chiffrée
+      <form class="coupon">
+        <label for="code-coupon">Code promo</label>
+        <div class="coupon-row">
+          <input id="code-coupon" placeholder="VERT10">
+          <button class="btn apply" type="button" disabled>Appliquer</button>
         </div>
-    </aside>
-</main>
+        <p class="hint">* Interaction désactivée (HTML/CSS uniquement)</p>
+      </form>
 
-<footer class="site-footer">
+      <dl class="totals">
+        <div><dt>Sous-total</dt><dd>6 900 XAF</dd></div>
+        <div><dt>Livraison</dt><dd>1 000 XAF</dd></div>
+        <div class="grand"><dt>Total</dt><dd>7 900 XAF</dd></div>
+      </dl>
+
+      <div class="secure">
+        🔒 Paiement sécurisé — connexion chiffrée
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
-        <small>&copy; 2025 Marché Frais — Tous droits réservés.</small>
+      <small>&copy; 2025 Marché Frais — Tous droits réservés.</small>
     </div>
-</footer>
+  </footer>
 </body>
 </html>
