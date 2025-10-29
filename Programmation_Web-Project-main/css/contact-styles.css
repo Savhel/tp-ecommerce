@@ -202,6 +202,7 @@
 }
 
 @media (max-width: 576px) {
+
     .contact-info .info p {
         font-size: 14px;
     }
